@@ -184,6 +184,24 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- :WQ saves the session then quits everything
+vim.api.nvim_create_user_command('WQ', function()
+  vim.cmd 'silent! wall' -- save all buffers
+  pcall(function()
+    require('persistence').save()
+  end) -- save session with persistence.nvim
+  vim.cmd 'qa' -- quit all
+end, {})
+
+-- Fast keymap to save session and quit all
+vim.keymap.set('n', '<leader>Q', function()
+  vim.cmd 'silent! wall'
+  pcall(function()
+    require('persistence').save()
+  end)
+  vim.cmd 'qa'
+end, { desc = 'Save session and quit all' })
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
