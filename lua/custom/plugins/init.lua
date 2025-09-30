@@ -10,6 +10,10 @@ return {
     opts = {
       dir = vim.fn.expand(vim.fn.stdpath 'state' .. '/sessions/'),
       options = { 'buffers', 'curdir', 'tabpages', 'winsize' },
+      -- Close neo-tree before saving session to prevent issues on restore
+      pre_save = function()
+        vim.cmd 'Neotree close'
+      end,
     },
     keys = {
       {
