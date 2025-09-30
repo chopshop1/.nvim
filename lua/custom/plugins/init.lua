@@ -3,6 +3,53 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  -- Session management - automatically saves and restores your nvim session
+  {
+    'folke/persistence.nvim',
+    event = 'BufReadPre',
+    opts = {
+      dir = vim.fn.expand(vim.fn.stdpath 'state' .. '/sessions/'),
+      options = { 'buffers', 'curdir', 'tabpages', 'winsize' },
+    },
+    keys = {
+      {
+        '<leader>qs',
+        function()
+          require('persistence').load()
+        end,
+        desc = 'Restore Session',
+      },
+      {
+        '<leader>ql',
+        function()
+          require('persistence').load { last = true }
+        end,
+        desc = 'Restore Last Session',
+      },
+      {
+        '<leader>qd',
+        function()
+          require('persistence').stop()
+        end,
+        desc = "Don't Save Current Session",
+      },
+    },
+    init = function()
+      -- Auto-restore session when starting nvim without arguments
+      local function restore_session()
+        if vim.fn.argc(-1) == 0 then
+          require('persistence').load()
+        end
+      end
+
+      local group = vim.api.nvim_create_augroup('PersistenceAutoRestore', { clear = true })
+      vim.api.nvim_create_autocmd('VimEnter', {
+        group = group,
+        callback = restore_session,
+        nested = true,
+      })
+    end,
+  },
   {
     'NickvanDyke/opencode.nvim',
     dependencies = {
