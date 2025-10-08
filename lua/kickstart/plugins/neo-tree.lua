@@ -15,6 +15,11 @@ return {
   },
   opts = {
     filesystem = {
+      visible = true, -- show filtered (dimmed) items in the list
+      hide_dotfiles = false,
+      hide_gitignored = false,
+      hide_by_name = { '.git', '.DS_Store', 'node_modules' },
+
       window = {
         mappings = {
           ['\\'] = 'close_window',
@@ -22,7 +27,5 @@ return {
       },
     },
   },
-  vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })
-
+  vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = 'Toggle file explorer' }),
 }
-
