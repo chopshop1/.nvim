@@ -961,6 +961,14 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
+  { -- Rainbow brackets/parentheses
+    'HiPhish/rainbow-delimiters.nvim',
+    event = 'BufReadPost',
+    config = function()
+      require('rainbow-delimiters.setup').setup {}
+    end,
+  },
+
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
