@@ -105,20 +105,13 @@ return {
     end,
   },
   {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup {
-        on_attach = function(bufnr)
-          local gs = package.loaded.gitsigns
-
-          -- Keymaps
-          vim.keymap.set('n', '<leader>hp', gs.preview_hunk, { buffer = bufnr })
-          vim.keymap.set('n', '<leader>hd', gs.diffthis, { buffer = bufnr })
-          vim.keymap.set('n', '<leader>hb', gs.blame_line, { buffer = bufnr })
-          vim.keymap.set('n', ']c', gs.next_hunk, { buffer = bufnr })
-          vim.keymap.set('n', '[c', gs.prev_hunk, { buffer = bufnr })
-        end,
-      }
-    end,
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      { '<leader>gs', '<cmd>Telescope git_status<cr>', desc = 'Git Status' },
+      { '<leader>gc', '<cmd>Telescope git_commits<cr>', desc = 'Git Commits' },
+      { '<leader>gb', '<cmd>Telescope git_branches<cr>', desc = 'Git Branches' },
+      { '<leader>gf', '<cmd>Telescope git_bcommits<cr>', desc = 'Git File History' },
+    },
   },
 }
