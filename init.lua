@@ -159,7 +159,7 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 
 -- Font settings (for GUI clients like Neovide, nvim-qt, etc.)
-vim.opt.guifont = "Menlo,Monaco,Courier New:h14"
+vim.opt.guifont = "Menlo,Monaco,Courier New:h16"
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
