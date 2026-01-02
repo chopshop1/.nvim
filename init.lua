@@ -904,17 +904,17 @@ require('lazy').setup({
     },
   },
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+    'projekt0n/github-nvim-theme',
     priority = 1000,
     config = function()
-      require('catppuccin').setup {
-        flavour = 'mocha',
-        color_overrides = {
-          mocha = { base = '#000000', mantle = '#000000', crust = '#000000' },
+      require('github-theme').setup {
+        options = {
+          styles = {
+            comments = 'italic',
+          },
         },
       }
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'github_dark_high_contrast'
     end,
   },
 
