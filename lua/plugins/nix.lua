@@ -19,7 +19,7 @@ return {
 
   -- Ensure nil is installed via mason
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = { "nil" },
     },
