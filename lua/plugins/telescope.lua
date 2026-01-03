@@ -8,6 +8,7 @@ return {
       pickers = {
         find_files = {
           hidden = true,
+          find_command = { "rg", "--files", "--hidden", "--color", "never", "-g", "!.git" },
         },
       },
     },
