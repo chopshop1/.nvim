@@ -1,25 +1,20 @@
--- Tokyo Night colorscheme configuration (matches system theme)
+-- GitHub Dark High Contrast colorscheme (original theme)
 return {
+  -- Add github theme
   {
-    "folke/tokyonight.nvim",
-    opts = {
-      style = "storm",
-      transparent = false,
-      terminal_colors = true,
-      styles = {
-        comments = { italic = true },
-        keywords = { italic = true },
-        sidebars = "dark",
-        floats = "dark",
-      },
-    },
+    "projekt0n/github-nvim-theme",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("github-theme").setup({})
+    end,
   },
 
   -- Set colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-storm",
+      colorscheme = "github_dark_high_contrast",
     },
   },
 }
