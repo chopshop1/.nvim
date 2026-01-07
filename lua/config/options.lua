@@ -7,3 +7,6 @@ vim.g.tokyonight_style = "storm"
 
 -- Relative line numbers
 vim.opt.relativenumber = true
+
+-- Wrap long lines at window edge
+vim.opt.wrap = true
