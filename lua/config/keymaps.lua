@@ -3,10 +3,16 @@
 -- Add any additional keymaps here
 
 -- Window navigation with Ctrl+hjkl
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
+vim.keymap.set("n", "<C-h>", "<Cmd>wincmd h<CR>", { desc = "Go to left window" })
+vim.keymap.set("n", "<C-j>", "<Cmd>wincmd j<CR>", { desc = "Go to lower window" })
+vim.keymap.set("n", "<C-k>", "<Cmd>wincmd k<CR>", { desc = "Go to upper window" })
+vim.keymap.set("n", "<C-l>", "<Cmd>wincmd l<CR>", { desc = "Go to right window" })
+
+-- Also enable in terminal mode
+vim.keymap.set("t", "<C-h>", "<Cmd>wincmd h<CR>", { desc = "Go to left window" })
+vim.keymap.set("t", "<C-j>", "<Cmd>wincmd j<CR>", { desc = "Go to lower window" })
+vim.keymap.set("t", "<C-k>", "<Cmd>wincmd k<CR>", { desc = "Go to upper window" })
+vim.keymap.set("t", "<C-l>", "<Cmd>wincmd l<CR>", { desc = "Go to right window" })
 
 -- Open fold when pressing j on a collapsed code block
 vim.keymap.set("n", "j", function()
