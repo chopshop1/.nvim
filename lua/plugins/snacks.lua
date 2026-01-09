@@ -10,14 +10,16 @@ return {
           explorer = {
             hidden = true,
             ignored = true,
+            layout = {
+              preset = "right",
+              width = 0.2,
+              resize = false,
+            },
           },
         },
       },
       explorer = {
         replace_netrw = true,
-        win = {
-          position = "right",
-        },
       },
     },
   },
