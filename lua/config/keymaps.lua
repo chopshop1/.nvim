@@ -21,3 +21,9 @@ vim.keymap.set("n", "j", function()
   end
   return "j"
 end, { expr = true, desc = "Move down or open fold" })
+
+-- Copy to tmux buffer
+vim.keymap.set({'n', 'v'}, '<leader>ty', ':w !tmux load-buffer -<CR><CR>')
+
+-- Or make 'y' automatically copy to tmux in visual mode
+vim.keymap.set('v', 'y', 'y:call system("tmux load-buffer -", @")<CR>')

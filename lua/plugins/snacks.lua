@@ -15,6 +15,9 @@ return {
       },
       explorer = {
         replace_netrw = true,
+        win = {
+          position = "right",
+        },
       },
     },
   },
