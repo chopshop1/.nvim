@@ -11,9 +11,10 @@ return {
             hidden = true,
             ignored = true,
             layout = {
-              preset = "right",
-              width = 0.2,
-              resize = false,
+              layout = {
+                position = "right",
+                width = 40,
+              },
             },
           },
         },
