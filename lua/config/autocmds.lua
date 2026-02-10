@@ -7,6 +7,12 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Auto-reload files changed outside of Neovim
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "BufEnter" }, {
+  pattern = "*",
+  command = "silent! checktime",
+})
+
 -- Auto-save after changes (similar to VS Code's afterDelay behavior)
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   pattern = "*",
