@@ -20,6 +20,11 @@ return {
         vim.api.nvim_set_hl(0, "Cursor", { bg = cursor_bg, fg = "#c9d1d9" })
         vim.api.nvim_set_hl(0, "CursorLine", { bg = cursor_bg })
         vim.api.nvim_set_hl(0, "CursorColumn", { bg = cursor_bg })
+
+        -- Treesitter context sticky header - distinct background + bold separator
+        vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#162030" })
+        vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#162030", fg = "#58a6ff" })
+        vim.api.nvim_set_hl(0, "TreesitterContextSeparator", { fg = "#58a6ff" })
       end
 
       vim.api.nvim_create_autocmd("ColorScheme", { callback = apply_highlights })
