@@ -1,6 +1,6 @@
 return {
   {
-    "echasnovski/mini.ai",
+    "nvim-mini/mini.ai",
     opts = function(_, opts)
       -- Prevent mini.ai from overriding I/A in visual/visual-block mode,
       -- which breaks native block insert/append.
